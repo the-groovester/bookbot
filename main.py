@@ -10,9 +10,15 @@ def get_book_text(filepath):
 
 def main(path):
     num_words = get_word_count(get_book_text(path))
+    sorted_dictionary_list = sort_dictionary(get_characters(get_book_text(path)))
+    print("============ BOOKBOT ============")
+    print(f"Analyzing book found at {path}...")
+    print("----------- Word Count ----------")
+    print(f"Found {num_words} total words")
+    print("--------- Character Count -------")
+ 
+    for i in sorted_dictionary_list:
+        print(f"{i["char"]}: {i["count"]}")
+    print("============= END ===============")
 
-    print(f"{num_words} words found in the document")
-    print(get_characters(get_book_text(path)))
-
-    print(sort_dictionary(get_characters(get_book_text(path))))
 main("books/frankenstein.txt")
